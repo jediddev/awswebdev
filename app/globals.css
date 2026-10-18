@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #f2f6f7;
+  }
+  body {
+    @apply bg-paper font-body text-ink antialiased;
+  }
+  :focus-visible {
+    outline: 3px solid #1d4e89;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .airmail {
+    height: 10px;
+    background: repeating-linear-gradient(
+      135deg,
+      #c03a26 0 14px,
+      #f2f6f7 14px 24px,
+      #1d4e89 24px 38px,
+      #f2f6f7 38px 48px
+    );
+  }
+
+  .stamp {
+    background: #fff;
+    padding: 8px;
+    outline: 5px dotted #f2f6f7;
+    outline-offset: -5px;
+    box-shadow: 0 0 0 1px #c8d3da;
+  }
+  .stamp-in-white {
+    background: #d5e0e6;
+    outline-color: #fff;
+    box-shadow: none;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply bg-sea text-white hover:bg-ink;
+  }
+  .btn-outline {
+    @apply border border-sea bg-white text-sea hover:bg-mist;
+  }
+  .btn-danger {
+    @apply border border-post bg-white text-post hover:bg-mist;
+  }
+
+  .field {
+    @apply w-full rounded-md border border-line bg-white px-3 py-2 text-base text-ink placeholder:text-ink/50;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse {
+    animation: none;
+  }
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
